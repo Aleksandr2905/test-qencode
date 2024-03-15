@@ -3,7 +3,7 @@ import { LogoWrapper } from "./Logo.styled";
 
 export const Logo = () => {
   return (
-    <LogoWrapper>
+    <LogoWrapper to="/">
       <svg width="179" height="32">
         <use href={`${logo}#Vector`} />
       </svg>
