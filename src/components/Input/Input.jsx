@@ -10,8 +10,8 @@ export const Input = ({ name, register, errors, placeholder }) => {
   };
 
   const getInputType = () => {
-    if (name === "password" || "passwordReset") {
-      return passwordVisible ? "text" : "password" || "passwordReset";
+    if (name === "password" || name === "passwordReset") {
+      return passwordVisible ? "text" : "password";
     }
     return name === "email" ? "email" : "text";
   };
@@ -26,7 +26,7 @@ export const Input = ({ name, register, errors, placeholder }) => {
       />
       <Errors>{errors[name]?.message}</Errors>
 
-      {(name === "password" || "passwordReset") && (
+      {(name === "password" || name === "passwordReset") && (
         <FiEye
           style={{
             cursor: "pointer",
