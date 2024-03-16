@@ -3,7 +3,7 @@
 :root {
   color: rgba(5, 5, 5, 0.87);
   background-color: #fff;
-
+  width: 100%;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;

@@ -7,6 +7,9 @@ import { Label } from "./ResetPassPage.styled";
 import { FormaWrap } from "../LoginPage/LoginPage.styled";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { resetPassSchema } from "../../helpers/validation";
+import { resetPassword } from "../../service/api";
+import { useDispatch } from "react-redux";
+import { resetPassThunk } from "../../redux/operations";
 
 export const ResetPassPage = () => {
   const {
@@ -18,11 +21,13 @@ export const ResetPassPage = () => {
     mode: "onTouched",
     resolver: yupResolver(resetPassSchema),
   });
+  const dispatch = useDispatch();
 
-  const onSubmit = (data) => {
-    console.log(data);
+  const onSubmit = async (newPassword) => {
+    dispatch(resetPassThunk(newPassword));
     reset();
   };
+
   return (
     <>
       <Logo />

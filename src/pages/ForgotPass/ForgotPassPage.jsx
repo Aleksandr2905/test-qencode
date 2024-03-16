@@ -7,6 +7,8 @@ import { ButtonCancel } from "./ForgotPassPage.styled";
 import { useNavigate } from "react-router-dom";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { forgotPassSchema } from "../../helpers/validation";
+import { useDispatch } from "react-redux";
+import { forgotPassThunk } from "../../redux/operations";
 
 export const ForgotPassPage = () => {
   const navigate = useNavigate("");
@@ -19,9 +21,10 @@ export const ForgotPassPage = () => {
     mode: "onTouched",
     resolver: yupResolver(forgotPassSchema),
   });
+  const dispatch = useDispatch();
 
-  const onSubmit = (data) => {
-    console.log(data);
+  const onSubmit = async (password) => {
+    dispatch(forgotPassThunk(password));
     reset();
     navigate("/reset-password");
   };

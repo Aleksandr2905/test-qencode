@@ -20,6 +20,8 @@ import {
   TextSignUp,
 } from "./LoginPage.styled";
 import { logInSchema } from "../../helpers/validation";
+import { useDispatch } from "react-redux";
+import { loginThunk } from "../../redux/operations";
 
 export const LogInPage = () => {
   const {
@@ -31,9 +33,10 @@ export const LogInPage = () => {
     mode: "onTouched",
     resolver: yupResolver(logInSchema),
   });
+  const dispatch = useDispatch();
 
   const onSubmit = (data) => {
-    console.log(data);
+    dispatch(loginThunk(data));
     reset();
   };
 
@@ -69,6 +72,7 @@ export const LogInPage = () => {
             register={register}
             errors={errors}
             placeholder="Password"
+            type="password"
           />
           <ForgotPass to="/forgot-password">Forgot your password?</ForgotPass>
           <Button text="Log in to Qencode" />

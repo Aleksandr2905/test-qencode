@@ -7,7 +7,7 @@ export const ButtonCancel = styled(Link)`
   justify-content: center;
   margin-top: 20px;
   border-radius: 8px;
-  width: 400px;
+  width: 100%;
   height: 48px;
   border: 1.2px solid #d3d8dc;
   text-align: center;
